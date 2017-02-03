@@ -16,7 +16,15 @@ class Client implements ClientEntityInterface
      *
      * @var string
      */
+
     private $id;
+
+    /**
+     * Identifier
+     *
+     * @var string
+     */
+    private $identitfier;
 
     /**
      * Secret
@@ -25,11 +33,23 @@ class Client implements ClientEntityInterface
      */
     private $secret;
 
-    public function __construct(string $name = null, string $secret = null, string $redirectUri = null)
+    public function __construct(string $identifier = null, string $name = null, string $secret = null,
+        string $redirectUri = null)
     {
+        $this->identitfier = $identifier;
         $this->name = $name;
         $this->secret = $secret;
         $this->redirectUri = $redirectUri;
+    }
+
+    /**
+     * Get id
+     *
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 
     /**
@@ -40,7 +60,7 @@ class Client implements ClientEntityInterface
      */
     public function getIdentifier()
     {
-        return $this->id;
+        return $this->identitfier;
     }
 
     /**

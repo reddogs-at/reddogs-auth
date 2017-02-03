@@ -6,15 +6,31 @@ use Reddogs\Auth\Entity\RefreshToken;
 
 class RefreshTokenTest extends \PHPUnit_Framework_TestCase
 {
-    private $refreshToken;
+    private $refreshToken, $expiryDateTime;
 
     protected function setUp()
     {
-        $this->refreshToken = new RefreshToken();
+        $this->expiryDateTime = new \DateTime();
+        $this->refreshToken = new RefreshToken('testIdentifier', 'testAccessToken', $this->expiryDateTime);
+    }
+
+    public function testGetId()
+    {
+        $this->assertNull($this->refreshToken->getId());
     }
 
     public function testGetIdentifier()
     {
-        $this->assertNull($this->refreshToken->getIdentifier());
+        $this->assertSame('testIdentifier', $this->refreshToken->getIdentifier());
+    }
+
+    public function testGetAccessToken()
+    {
+        $this->assertSame('testAccessToken', $this->refreshToken->getAccessToken());
+    }
+
+    public function testGetExpiryDateTime()
+    {
+        $this->assertSame($this->expiryDateTime, $this->refreshToken->getExpiryDateTime());
     }
 }

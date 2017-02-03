@@ -10,12 +10,17 @@ class ClientTest extends \PHPUnit_Framework_TestCase
 
     protected function setUp()
     {
-        $this->client = new Client('testName', 'testSecret', 'testRedirectUri');
+        $this->client = new Client('testIdentifier', 'testName', 'testSecret', 'testRedirectUri');
+    }
+
+    public function testGetId()
+    {
+        $this->assertNull($this->client->getId());
     }
 
     public function testGetIdentifier()
     {
-        $this->assertNull($this->client->getIdentifier());
+        $this->assertSame('testIdentifier', $this->client->getIdentifier());
     }
 
     public function testGetName()
