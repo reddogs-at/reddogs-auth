@@ -4,7 +4,9 @@
     "type": "library",
     "license": "MIT",
     "require": {
-        "php": "^5.5 || ^7.0"
+        "php": "^5.5 || ^7.0",
+        "league/oauth2-server": "^5.1",
+        "reddogs-at/reddogs-doctrine": "^1.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^5.5",
