@@ -24,9 +24,21 @@ class RefreshTokenTest extends \PHPUnit_Framework_TestCase
         $this->assertSame('testIdentifier', $this->refreshToken->getIdentifier());
     }
 
+    public function testSetIdentifier()
+    {
+        $this->refreshToken->setIdentifier('newIdentifier');
+        $this->assertSame('newIdentifier', $this->refreshToken->getIdentifier());
+    }
+
     public function testGetAccessToken()
     {
         $this->assertSame('testAccessToken', $this->refreshToken->getAccessToken());
+    }
+
+    public function testSetAccessToken()
+    {
+        $this->refreshToken->setAccessToken('newAccessToken');
+        $this->assertSame('newAccessToken', $this->refreshToken->getAccessToken());
     }
 
     public function testGetExpiryDateTime()
